@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Random Quote</title> </head>
+    <title>Random Quote</title>
+    <g:javascript library="prototype"/>
+
+</head>
+
+
+
 <body>
-<q>${content}</q>
-<p>${author}</p>
+<q>${quote.content}</q>
+<p>${quote.author}</p>
 </body>
 </html>
