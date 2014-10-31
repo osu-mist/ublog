@@ -67,7 +67,7 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:1.9.6"
 
         // CKeditor to provide WYSIWYG support
-        //compile ":ckeditor:3.6.6.1.0"
+        compile ":ckeditor:4.4.1.0"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.5" // or ":hibernate:3.6.10.17"
