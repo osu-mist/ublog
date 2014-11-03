@@ -1,9 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: carlsbet
-  Date: 10/27/14
-  Time: 1:49 PM
---%>
+
 
 <html>
 <head>

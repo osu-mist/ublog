@@ -20,36 +20,28 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
-			<thead>
-					<tr>
-					
-						<g:sortableColumn property="title" title="${message(code: 'post.title.label', default: 'Title')}" />
-					
-						<g:sortableColumn property="bodyText" title="${message(code: 'post.bodyText.label', default: 'Body Text')}" />
-					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'post.dateCreated.label', default: 'Date Created')}" />
-					
-						<th><g:message code="post.user.label" default="User" /></th>
-					
-					</tr>
-				</thead>
-				<tbody>
+
+
 				<g:each in="${postInstanceList}" status="i" var="postInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+
+                        <p>
 						<td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link></td>
-					
+                        </p>
+                    <p>
 						<td>${fieldValue(bean: postInstance, field: "bodyText")}</td>
-					
+                    </p>
 						<td><g:formatDate date="${postInstance.dateCreated}" /></td>
-					
-						<td>${fieldValue(bean: postInstance, field: "user")}</td>
-					
-					</tr>
+                    <p>
+						<td><g:link controller = "User" action="show" id="${postInstance.user.id}">${fieldValue(bean: postInstance, field: "user.displayName")}</g:link></td>
+                    </p>
+                    <p>
+                    <td>${fieldValue(bean: postInstance, field: "tags")}</td>
+                    </p>
+
+                 </tr>
 				</g:each>
-				</tbody>
-			</table>
+
 			<div class="pagination">
 				<g:paginate total="${postInstanceCount ?: 0}" />
 			</div>
