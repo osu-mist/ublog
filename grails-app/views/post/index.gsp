@@ -16,36 +16,39 @@
 			</ul>
 		</div>
 		<div id="list-post" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1><g:message code="post.timeline.message" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
                 <%-- Display all posts in list form, with title, body text, date, and author --%>
 				<g:each in="${postInstanceList}" status="i" var="postInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                    <article>
+
 
                         <p>
-						<td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link></td>
+						<g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link>
                         </p>
                     <p>
 					<%--	<td>${fieldValue(bean: postInstance, field: "bodyText", max: "3")}</td>  --%>
                     <%-- Display only the first 13 characters of the post's body. Note that html tags are incl. in that 13 characters. --%>
-                        <td>${org.apache.commons.lang.StringUtils.substring(postInstance.bodyText, 0, 13) + "..."}</td>
+                        ${postInstance?.abbrevText()}
+
                     </p>
 
                         <%-- Display the date in a more readable format --%>
-						<td><g:formatDate format="EEE, MMM d, yyyy '  at' hh:mm aaa" date="${postInstance.dateCreated }" /></td>
+						<g:formatDate format="EEE, MMM d, yyyy '  at' hh:mm aaa" date="${postInstance.dateCreated }" />
                     <p>
 
                         <%-- Pass the user's id as the id param, but display the user's displayName --%>
-						<td><g:link controller = "User" action="show" id="${postInstance.user.id}">${fieldValue(bean: postInstance, field: "user.displayName")}</g:link></td>
+						<g:link controller = "User" action="show" id="${postInstance.user.id}">${fieldValue(bean: postInstance, field: "user.displayName")}</g:link>
                     </p>
                     <p>
-                    <td>${fieldValue(bean: postInstance, field: "tags")}</td>
+                    ${fieldValue(bean: postInstance, field: "tags")}
                     </p>
 
-                 </tr>
+
+                    </article>
 				</g:each>
 
 			<div class="pagination">

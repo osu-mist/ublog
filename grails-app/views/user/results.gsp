@@ -2,11 +2,11 @@
 
 <html>
 <head>
-    <title>Search Results</title>
+    <title>"default.search.message"</title>
 
     <meta name="layout" content="main"/> </head>
 <body>
-<h1>Results</h1>
+<h1><g:message code="default.search.message"/></h1>
 <p>Searched ${com.grailsinaction.User.count()} records for items matching <em>${term}</em>.
 Found <strong>${users.size()}</strong> hits.
 </p>
