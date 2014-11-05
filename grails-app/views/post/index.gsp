@@ -21,7 +21,7 @@
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
 
-
+                <%-- Display all posts in list form, with title, body text, date, and author --%>
 				<g:each in="${postInstanceList}" status="i" var="postInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
@@ -29,10 +29,16 @@
 						<td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link></td>
                         </p>
                     <p>
-						<td>${fieldValue(bean: postInstance, field: "bodyText")}</td>
+					<%--	<td>${fieldValue(bean: postInstance, field: "bodyText", max: "3")}</td>  --%>
+                    <%-- Display only the first 13 characters of the post's body. Note that html tags are incl. in that 13 characters. --%>
+                        <td>${org.apache.commons.lang.StringUtils.substring(postInstance.bodyText, 0, 13) + "..."}</td>
                     </p>
-						<td><g:formatDate date="${postInstance.dateCreated}" /></td>
+
+                        <%-- Display the date in a more readable format --%>
+						<td><g:formatDate format="EEE, MMM d, yyyy '  at' hh:mm aaa" date="${postInstance.dateCreated }" /></td>
                     <p>
+
+                        <%-- Pass the user's id as the id param, but display the user's displayName --%>
 						<td><g:link controller = "User" action="show" id="${postInstance.user.id}">${fieldValue(bean: postInstance, field: "user.displayName")}</g:link></td>
                     </p>
                     <p>
