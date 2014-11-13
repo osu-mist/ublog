@@ -40,10 +40,7 @@ Thumbs.db
 .idea/
 .project
 grails-app/.DS_Store
-grails-app/controllers/
-grails-app/domain/
 target/
-test/
 ublog-grailsPlugins.iml
 ublog.iml
 web-app/WEB-INF/tld/c.tld
