@@ -41,7 +41,7 @@ class UserController {
 
     def logout = {
 
-     //   flash.message = "Goodbye ${session.user.name}. Log in again?"
+        flash.message = "Goodbye ${session.user.name}. Log in again?"
         session.user = null
         redirect( action:'login')
 

@@ -58,7 +58,9 @@ class UserControllerSpec extends Specification {
             controller.flash.message != null
             User.count() == 1
     }
-*/
+
+    */
+/*
     void "Test that the show action returns the correct model"() {
         when:"The show action is executed with a null domain"
             controller.show(null)
@@ -72,9 +74,11 @@ class UserControllerSpec extends Specification {
             controller.show(user)
 
         then:"A model is populated containing the domain instance"
-            model.userInstance == user
-    }
 
+            model.userInstance == user
+            println("User: user instance matches user")
+    }
+*/
     void "Test that the edit action returns the correct model"() {
         when:"The edit action is executed with a null domain"
             controller.edit(null)

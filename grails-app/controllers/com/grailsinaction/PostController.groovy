@@ -8,18 +8,18 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PostController {
 
-/*    def beforeInterceptor = [action:this.&checkUser,except:
+    def beforeInterceptor = [action:this.&checkUser,except:
             ['index','list','show']]
-*/
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
- /*   def checkUser(){
+    def checkUser(){
         if(!session.user){
             redirect(controller: 'user', action: 'login')
             return false
         }
     }
-*/
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
     // redirect(action: 'timeline', params: params)
@@ -39,6 +39,10 @@ class PostController {
 
     @Transactional
     def save(Post postInstance) {
+        println("starting post save\n")
+        println("Test:\n")
+        println
+
         if (postInstance == null) {
             println("not found")
             notFound()
@@ -46,12 +50,12 @@ class PostController {
         }
 
         if (postInstance.hasErrors()) {
-            println("Has errors")
+            println("Has errors\n")
             respond postInstance.errors, view:'create'
             return
         }
 
-        println("Test:")
+        println("Test:\n")
         println( postInstance)
         postInstance.save flush:true
 

@@ -4,15 +4,27 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+
+
+
 		<g:set var="entityName" value="${message(code: 'post.label', default: 'Post')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+
+
+
+
 	</head>
 	<body>
 		<a href="#list-post" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+
+
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+
+
+
 			</ul>
 		</div>
 		<div id="list-post" class="content scaffold-list" role="main">
@@ -30,7 +42,7 @@
 						<g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link>
                         </p>
                     <p>
-					<%--	<td>${fieldValue(bean: postInstance, field: "bodyText", max: "3")}</td>  --%>
+
                     <%-- Display only the first 13 characters of the post's body. Note that html tags are incl. in that 13 characters. --%>
                         ${postInstance?.abbrevText()}
 

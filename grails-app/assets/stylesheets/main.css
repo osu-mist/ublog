@@ -37,7 +37,7 @@ html * {
 }
 
 body {
-	background: #ffffff;
+	background: #e2ffef;
 	color: #333333;
 	margin: 0 auto;
 	max-width: 960px;
@@ -49,6 +49,15 @@ body {
 
 #grailsLogo {
 	background-color: #abbf78;
+}
+
+div#login {
+    float: right;
+}
+
+#loginHeader {
+    float: right;
+    color: #0b0d22;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -283,7 +292,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .required-indicator {
-	color: #48802C;
+	color: #801210;
 	display: inline-block;
 	font-weight: bold;
 	margin-left: 0.3em;
