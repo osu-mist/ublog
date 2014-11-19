@@ -39,23 +39,23 @@ class PostController {
 
     @Transactional
     def save(Post postInstance) {
-        println("starting post save\n")
-        println("Test:\n")
-        println
+      //  println("starting post save\n")
+      //  println("Test:\n")
+
 
         if (postInstance == null) {
-            println("not found")
+        //    println("not found")
             notFound()
             return
         }
 
         if (postInstance.hasErrors()) {
-            println("Has errors\n")
+         //   println("Has errors\n")
             respond postInstance.errors, view:'create'
             return
         }
 
-        println("Test:\n")
+      //  println("Test:\n")
         println( postInstance)
         postInstance.save flush:true
 
