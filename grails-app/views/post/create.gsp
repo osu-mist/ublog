@@ -24,6 +24,7 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
 			<g:hasErrors bean="${postInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${postInstance}" var="error">
@@ -31,18 +32,11 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+
 			<g:form url="[resource:postInstance, action:'save']" >
                     <%-- 'name' needs to match the post's fields  --%>
                     <label>Title</label>
                     <g:textField name="title" value="${postInstance?.title}" />
-
-            <%-- List them based on id, but show their displayName in the menu --%>
-                    <g:select name="user" from="${com.grailsinaction.User.list()}"
-
-
-                        optionKey="id"
-                        optionValue="displayName"
-                        noSelection="${['null':'Please Choose a User']}"  />
 
                     <%-- WYSIWYG editor for the body of the post --%>
                     <ckeditor:editor name="bodyText" height="400px" width="80%">
