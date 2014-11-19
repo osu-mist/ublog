@@ -34,8 +34,10 @@
                     <label>Title</label>
                     <g:textField name="title" value="${postInstance?.title}" />
 
-                    <g:select name="user"
-                        from="${com.grailsinaction.User.list()}"
+            <%-- List them based on id, but show their displayName in the menu --%>
+                    <g:select name="user" from="${com.grailsinaction.User.list()}"
+
+
                         optionKey="id"
                         optionValue="displayName"
                         noSelection="${['null':'Please Choose a User']}"  />
