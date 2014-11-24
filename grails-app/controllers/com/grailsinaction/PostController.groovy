@@ -22,7 +22,6 @@ class PostController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-    // redirect(action: 'timeline', params: params)
         respond Post.list(params), model:[postInstanceCount: Post.count()]
     }
 
@@ -39,24 +38,20 @@ class PostController {
 
     @Transactional
     def save(Post postInstance) {
-      //  println("starting post save\n")
-      //  println("Test:\n")
 
 
         if (postInstance == null) {
-        //    println("not found")
             notFound()
             return
         }
 
         if (postInstance.hasErrors()) {
-         //   println("Has errors\n")
+
             respond postInstance.errors, view:'create'
             return
         }
 
-      //  println("Test:\n")
-        println( postInstance)
+
         postInstance.save flush:true
 
         request.withFormat {
