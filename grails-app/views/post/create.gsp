@@ -15,6 +15,8 @@
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+
+
 			</ul>
 		</div>
 		<div id="create-post" class="content scaffold-create" role="main">
@@ -22,6 +24,7 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
 			<g:hasErrors bean="${postInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${postInstance}" var="error">
@@ -29,16 +32,11 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+
 			<g:form url="[resource:postInstance, action:'save']" >
                     <%-- 'name' needs to match the post's fields  --%>
                     <label>Title</label>
                     <g:textField name="title" value="${postInstance?.title}" />
-
-                    <g:select name="user"
-                        from="${com.grailsinaction.User.list()}"
-                        optionKey="id"
-                        optionValue="displayName"
-                        noSelection="${['null':'Please Choose a User']}"  />
 
                     <%-- WYSIWYG editor for the body of the post --%>
                     <ckeditor:editor name="bodyText" height="400px" width="80%">
