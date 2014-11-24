@@ -34,7 +34,6 @@ class PostController {
      */
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-    // redirect(action: 'timeline', params: params)
         respond Post.list(params), model:[postInstanceCount: Post.count()]
     }
 
@@ -56,7 +55,6 @@ class PostController {
     def create() {
 
         respond(new Post(params))
-   //  flash.message =  " Successfully saved post"
     }
 
 /**
@@ -70,25 +68,10 @@ class PostController {
     @Transactional
     def save(Post postInstance) {
 
-      //  println("starting post save\n")
-      //  println("Test:\n")
-
-
-        if (postInstance == null) {
-            //    println("not found")
-        }
-       // println("starting post save\n")
-
-        println("\n\nTest save:\n")
-
         // Set the post's user to be the currently logged-in user
         postInstance.user = session.user
 
-        //  println("Test:\n")
-    //    println( postInstance.user)
-
         if (postInstance == null) {
-        //    println("null post")
             notFound()
             return
         }
@@ -97,20 +80,9 @@ class PostController {
         postInstance.validate()
 
         if (postInstance.hasErrors()) {
-
-         //   println("Has errors\n")
-
-          //  println("Has errors\n")
-          //  println(postInstance.errors)
-
             respond postInstance.errors, view:'create'
             return
         }
-
-
-      //  println("Test:\n")
-        println( postInstance)
-
 
 
         postInstance.save flush:true

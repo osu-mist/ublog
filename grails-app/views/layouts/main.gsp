@@ -7,7 +7,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<%--	<title>uBlog &raquo; <g:layoutTitle default="Welcome to uBlog"/></title> --%>
         <g:message code="default.ublog.header"  />
 
 
@@ -24,13 +23,6 @@
 
 	<body>
 
-	<%--	Display the user's name and a logout link if there is a user logged in  --%>
- <%--   <g:if test="${session?.user}">
-    <div id="login">
-         ${session?.user?.displayName}  | <g:link controller="user" action="logout">Logout</g:link></div>
-    </g:if>
-
---%>
 
     <div id="loginHeader">
         <myTag:loginControl />

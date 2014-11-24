@@ -22,7 +22,6 @@ class Post {
 
             // Make this a text area rather than the default string area
             bodyText(blank: false, widget: 'textarea')
-         //   bodyText(blank: false)
 
         }
 
