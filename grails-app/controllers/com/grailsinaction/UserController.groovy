@@ -20,39 +20,57 @@ class UserController {
         respond userInstance
     }
 
+    /**
+     * Directs to the login.gsp page
+     */
     def login = {
 
     }
 
+    /**
+     * Do the work of logging in: check if the email+password combination exists in the
+     * database, and if so, set the current session user to be that found user.
+     * If successfully logged in, redirect to the list of posts. Otherwise redirect back to login.
+     */
     def doLogin = {
-        def user = User.findWhere(email:params['email'],
-                password:params['password'])
+        def user = User.findWhere(email: params['email'],
+                password: params['password'])
         session.user = user
 
-        if(user){
-            redirect(controller:'post',action:'index')
-        }
-        else{
-            flash.message = "Please try again"
-            redirect(controller:'user',action:'login')
+        if (user) {
+            flash.message = message(code: 'user.login.success')
+
+            redirect(controller: 'post', action: 'index')
+        } else {
+            if (!params['email']) {
+                flash.message = message(code: 'user.login.email.blank')
+
+            }
+            else if (!params['password']) {
+                flash.message = message(code: 'user.login.password.blank')
+
+            }
+            else { // Combination not found in database
+
+                flash.message = message(code: 'user.login.error')
+            }
+
+
+            redirect(controller: 'user', action: 'login')
+
         }
     }
 
+    /**
+     * Reset the session user to be null, and redirect the user to the login screen
+     */
     def logout = {
 
-        flash.message = "Goodbye ${session.user.name}. Log in again?"
+        flash.message = message(code: 'user.logout.message')
         session.user = null
         redirect( action:'login')
 
     }
-
-
-    def logout() {
-        log.info "User agent: " + request.getHeader("User-Agent")
-        session.invalidate()
-        redirect(action: "login")
-    }
-
 
     def create() {
         respond new User(params)

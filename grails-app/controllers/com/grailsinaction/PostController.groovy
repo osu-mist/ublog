@@ -79,7 +79,9 @@ class PostController {
         // Need to validate, because we recently stored data (the post's user)
         postInstance.validate()
 
+        
         if (postInstance.hasErrors()) {
+
             respond postInstance.errors, view:'create'
             return
         }

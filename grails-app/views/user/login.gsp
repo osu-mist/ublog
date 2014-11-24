@@ -9,6 +9,12 @@
     <g:form action="doLogin" method="post">
         <div class="dialog">
             <p><g:message code="user.login.message"/></p>
+
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
+
+
             <table  class="userForm">
                 <tr class='prop'>
                     <td valign='top' style='text-align:left;' width='20%'>
