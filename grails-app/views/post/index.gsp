@@ -18,15 +18,33 @@
 		<a href="#list-post" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 
 
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+
+    <g:if test="${session?.user}">
+    <%-- If a user is logged in, show a new post link  --%>
+        <div class="nav" role="navigation">
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+            <ul> <li><a class="create" href="${createLink(uri: '/post/create')}"><g:message code="create.post.message"/></a> </li>
+
+            </ul>
+        </div>
+    </g:if>
+
+    <%-- If no user is logged in, show a login link and a create user link--%>
+    <g:else>
+        <div class="nav" role="navigation">
+            <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+            <ul> <li><a class="login" href="${createLink(uri: '/user/login')}"><g:message code="default.login.message"/></a> </li>
+                <li><a class="create" href="${createLink(uri: '/user/create')}"><g:message code="create.new.user.message"/></a>
+
+
+            </ul>
+        </div>
+    </g:else>
 
 
 
-			</ul>
-		</div>
+
+
 		<div id="list-post" class="content scaffold-list" role="main">
 			<h1><g:message code="post.timeline.message" /></h1>
 			<g:if test="${flash.message}">

@@ -88,23 +88,25 @@
 
 
         <g:if test="${session?.user}">
+        <%-- If a user is logged in, show a new post link on the home page --%>
+            <div class="nav" role="navigation">
+                <ul> <li><a class="create" href="${createLink(uri: '/post/create')}"><g:message code="create.post.message"/></a> </li>
+
+                </ul>
+            </div>
             </g:if>
-        <%-- If no user is logged in, show a login link --%>
+
+        <%-- If no user is logged in, show a login link and a create user link--%>
         <g:else>
             <div class="nav" role="navigation">
-                <ul> <li><a class="login" href="${createLink(uri: '/user/login')}"><g:message code="default.login.message"/></a> </li> </ul>
+                <ul> <li><a class="login" href="${createLink(uri: '/user/login')}"><g:message code="default.login.message"/></a> </li>
+                    <li><a class="create" href="${createLink(uri: '/user/create')}"><g:message code="create.new.user.message"/></a>
+
+
+                </ul>
             </div>
         </g:else>
 
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
 		</div>
 	</body>
 </html>
