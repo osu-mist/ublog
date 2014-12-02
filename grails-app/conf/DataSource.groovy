@@ -19,7 +19,17 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            driverClassName = "com.mysql.jdbc.Driver"
+            dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+            url = "jdbc:mysql://localhost:8889/ublog"
+            username = "root"
+            password = "root"
+
+
+        }
+        // Print out MySQL queries
+        hibernate {
+            show_sql = true
         }
     }
     test {
