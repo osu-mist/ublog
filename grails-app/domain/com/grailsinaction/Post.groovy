@@ -32,13 +32,14 @@ class Post {
 
 
     /**
-     * This method returns the first 10 characters of the post's body text
+     * This method returns the first few characters of the post's body text
      * @return text   String: The first 10 characters of the text
      */
 
         String abbrevText() {
-            String text = bodyText[0..10]
-            return text
+
+            String result = bodyText[0..20]
+            return result
         }
 
 

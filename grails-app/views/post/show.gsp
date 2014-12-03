@@ -36,10 +36,15 @@
 				<g:if test="${postInstance?.bodyText}">
 				<li class="fieldcontain">
 					<span id="bodyText-label" class="property-label"><g:message code="post.bodyText.label" default="Body Text" /></span>
-					
-						<span class="property-value" aria-labelledby="bodyText-label"><g:fieldValue bean="${postInstance}" field="bodyText"/></span>
-					
+					    <%-- Display the post's body rendered as HTML --%>
+						<span class="property-value" aria-labelledby="bodyText-label">  ${postInstance?.bodyText.encodeAsRaw()}   </span>
+
+
+
 				</li>
+
+
+
 				</g:if>
 			
 				<g:if test="${postInstance?.dateCreated}">
@@ -66,7 +71,7 @@
 				<li class="fieldcontain">
 					<span id="user-label" class="property-label"><g:message code="post.user.label" default="User" /></span>
 					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${postInstance?.user?.id}">${postInstance?.user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${postInstance?.user?.id}">${postInstance?.user?.displayName.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

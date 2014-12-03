@@ -54,15 +54,15 @@
                 <%-- Display all posts in list form, with title, body text, date, and author --%>
 				<g:each in="${postInstanceList}" status="i" var="postInstance">
                     <article>
-
-
+                        <br>
                         <p>
 						<g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link>
                         </p>
                     <p>
 
-                    <%-- Display only the first 13 characters of the post's body. Note that html tags are incl. in that 13 characters. --%>
-                        ${postInstance?.abbrevText()}
+                    <%-- Display only the first 10  characters of the post's body --%>
+                        ${postInstance.abbrevText()}
+
 
                     </p>
 

@@ -75,7 +75,7 @@
 					<span id="posts-label" class="property-label"><g:message code="user.posts.label" default="Posts" /></span>
 					
 						<g:each in="${userInstance.posts}" var="p">
-						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.title.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
