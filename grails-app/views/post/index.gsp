@@ -24,13 +24,11 @@
                         <p>
 						<g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "title")}</g:link>
                         </p>
-                    <p>
 
-                    <%-- Display only the first 10  characters of the post's body --%>
-                        ${postInstance.abbrevText()}
-
-
-                    </p>
+                        <p>
+                            <%-- Display only the first 10  characters of the post's body --%>
+                            ${postInstance.abbrevText()}
+                        </p>
 
                         <%-- Display the date in a more readable format --%>
 						<g:formatDate format="EEE, MMM d, yyyy '  at' hh:mm aaa" date="${postInstance.dateCreated }" />

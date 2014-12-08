@@ -26,19 +26,12 @@
 				</g:if>
 			
 				<g:if test="${postInstance?.bodyText}">
-				<li class="fieldcontain">
-					<span id="bodyText-label" class="property-label"><g:message code="post.bodyText.label" default="Body Text" /></span>
+				    <li class="fieldcontain">
+					    <span id="bodyText-label" class="property-label"><g:message code="post.bodyText.label" default="Body Text" /></span>
 
 					    <%-- Display the post's body rendered as HTML --%>
 						<span class="property-value" aria-labelledby="bodyText-label">  ${postInstance?.bodyText.encodeAsRaw()}   </span>
-
-
-
-
-				</li>
-
-
-
+				    </li>
 				</g:if>
 			
 				<g:if test="${postInstance?.dateCreated}">
@@ -47,6 +40,13 @@
 					<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${postInstance?.dateCreated}" /></span>
 				</li>
 				</g:if>
+
+                <g:if test="${postInstance?.lastUpdated}">
+                    <li class="fieldcontain">
+                        <span id="lastUpdated-label" class="property-label"><g:message code="post.lastUpdated.label" default="Last Updated" /></span>
+                        <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${postInstance?.lastUpdated}" /></span>
+                    </li>
+                </g:if>
 			
 				<g:if test="${postInstance?.tags}">
 				<li class="fieldcontain">

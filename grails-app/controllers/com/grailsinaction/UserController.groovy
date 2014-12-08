@@ -128,7 +128,10 @@ class UserController {
             return
         }
 
+
+
         userInstance.save flush:true
+        session.user = userInstance
 
         request.withFormat {
             form multipartForm {

@@ -54,6 +54,13 @@
 					
 				</li>
 				</g:if>
+
+                <g:if test="${userInstance?.lastUpdated}">
+                    <li class="fieldcontain">
+                        <span id="lastUpdated-label" class="property-label"><g:message code="user.lastUpdated.label" default="Last Updated" /></span>
+                        <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${userInstance?.lastUpdated}" /></span>
+                    </li>
+                </g:if>
 			
 				<g:if test="${userInstance?.site}">
 				<li class="fieldcontain">

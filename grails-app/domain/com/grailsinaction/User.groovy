@@ -9,6 +9,7 @@ class User {
     String email
     String displayName
     Date dateCreated
+    Date lastUpdated
     Site site // Declare that a User has one Site associated with it
     static hasMany = [ posts : Post, tags: Tag] // Declare that a User has many Posts
 
@@ -24,7 +25,7 @@ class User {
         })
         email()
         displayName()
-        dateCreated()
+
         site(nullable:true) // Say that the profile is optional
 
 

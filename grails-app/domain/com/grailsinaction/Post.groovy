@@ -14,6 +14,7 @@ class Post {
 
         String title
         Date dateCreated
+        Date lastUpdated
 
 
 
@@ -27,8 +28,13 @@ class Post {
 
 
         static mapping = {
+            autoTimestamp true
             sort dateCreated: "desc"  // Sort the posts by the date created
         }
+
+
+
+
 
 
     /**
@@ -38,7 +44,7 @@ class Post {
 
         String abbrevText() {
 
-            String result = bodyText[0..20]
+            String result = bodyText[0..3]
             return result
         }
 

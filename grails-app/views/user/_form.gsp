@@ -10,7 +10,7 @@
     <input type = "text"
            name = "name"
            maxlength="25"
-           value = "" />
+           value = "${userInstance?.name}" />
 </div>
 
 
@@ -23,7 +23,7 @@
     <input type = "password"
            name = "password"
            maxlength="25"
-           value = "" />
+           value = "${userInstance?.password}" />
 </div>
 
 
@@ -35,7 +35,7 @@
     <input type = "text"
            name = "email"
            maxlength="40"
-           value = "" />
+           value = "${userInstance?.email}" />
 </div>
 
 
@@ -47,26 +47,8 @@
     <input type = "text"
            name = "displayName"
            maxlength="25"
-           value = "" />
-
+           value = "${userInstance?.displayName}" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'posts', 'error')} ">
-	<label for="posts">
-		<g:message code="user.posts.label" default="Posts" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${userInstance?.posts?}" var="p">
-    <li><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-</g:each>
 
-<li class="add">
-<g:link controller="post" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'post.label', default: 'Post')])}</g:link>
-</li>
-</ul>
-
-
-</div>
 

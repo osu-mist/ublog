@@ -21,7 +21,7 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             driverClassName = "com.mysql.jdbc.Driver"
             dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-            url = "jdbc:mysql://localhost:8889/ublog"
+            url = "jdbc:mysql://localhost:8889/ublog?zeroDateTimeBehavior=convertToNull"
             username = "root"
             password = "root"
 
