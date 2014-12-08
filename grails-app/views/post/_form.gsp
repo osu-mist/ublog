@@ -8,7 +8,10 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="title" required="" value="${postInstance?.title}"/>
-
+    <input type = "text"
+           name = "title"
+           maxlength="60"
+           value = "" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'bodyText', 'error')} required">
@@ -16,8 +19,9 @@
 		<g:message code="post.bodyText.label" default="Body Text" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="bodyText" cols="40" rows="5" required="" value="${postInstance?.bodyText}"/>
-
+    <input type = "textarea"
+           name = "bodyText"
+           value = "" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'tags', 'error')} ">
@@ -29,12 +33,5 @@
 
 </div>
 
-<%-- <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'user', 'error')} required">
-	<label for="user">
-		<g:message code="post.user.label" default="User" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="user" name="user.id" from="${com.grailsinaction.User.list()}" optionKey="id" required="" value="${postInstance?.user?.id}" class="many-to-one"/>
---%>
-</div>
+
 

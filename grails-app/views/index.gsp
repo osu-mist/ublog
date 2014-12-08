@@ -84,29 +84,9 @@
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 
 		<div id="page-body" role="main">
-
-
-
-        <g:if test="${session?.user}">
-        <%-- If a user is logged in, show a new post link on the home page --%>
-            <div class="nav" role="navigation">
-                <ul> <li><a class="create" href="${createLink(uri: '/post/create')}"><g:message code="create.post.message"/></a> </li>
-
-                </ul>
-            </div>
-            </g:if>
-
-        <%-- If no user is logged in, show a login link and a create user link--%>
-        <g:else>
-            <div class="nav" role="navigation">
-                <ul> <li><a class="login" href="${createLink(uri: '/user/login')}"><g:message code="default.login.message"/></a> </li>
-                    <li><a class="create" href="${createLink(uri: '/user/create')}"><g:message code="create.new.user.message"/></a>
-
-
-                </ul>
-            </div>
-        </g:else>
-
+            <p> uBlog is a simple blogging site using Groovy and Grails.
+            It is designed to showcase the functionality that can be developed very
+            quickly when using Grails. </p>
 		</div>
 	</body>
 </html>
