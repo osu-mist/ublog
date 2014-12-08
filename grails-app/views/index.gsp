@@ -84,27 +84,9 @@
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 
 		<div id="page-body" role="main">
-
-
-
-        <g:if test="${session?.user}">
-            </g:if>
-        <%-- If no user is logged in, show a login link --%>
-        <g:else>
-            <div class="nav" role="navigation">
-                <ul> <li><a class="login" href="${createLink(uri: '/user/login')}"><g:message code="default.login.message"/></a> </li> </ul>
-            </div>
-        </g:else>
-
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
+            <p> uBlog is a simple blogging site using Groovy and Grails.
+            It is designed to showcase the functionality that can be developed very
+            quickly when using Grails. </p>
 		</div>
 	</body>
 </html>

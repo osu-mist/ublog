@@ -20,10 +20,15 @@
 	</head>
 
 	<body>
-
-
     <div id="loginHeader">
         <myTag:loginControl />
+    </div>
+
+    <div class="nav" role="navigation">
+        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+        <ul> <li><a class="lost" href="${createLink(uri: '/post/index')}"><g:message code="post.list.message"/></a> </li>
+
+        </ul>
     </div>
 
 	<g:layoutBody />
