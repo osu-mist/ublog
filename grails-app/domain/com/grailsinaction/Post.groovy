@@ -2,16 +2,11 @@ package com.grailsinaction
 import org.apache.commons.lang.StringUtils
 
 class Post {
-
-
         // Declare that a post belongs to a user
         static belongsTo = [ user : User ]  // Mapping style means we can get to a User from a post
         static hasMany = [tags: Tag]
         Integer id
-     //   String siteId
         String bodyText
-
-
         String title
         Date dateCreated
         Date lastUpdated
@@ -33,18 +28,12 @@ class Post {
         }
 
 
-
-
-
-
     /**
      * This method returns the first few characters of the post's body text
      * @return text   String: The first 10 characters of the text
      */
-
         String abbrevText() {
-
-            String result = bodyText[0..3]
+            String result = bodyText[0..10] + "..."
             return result
         }
 

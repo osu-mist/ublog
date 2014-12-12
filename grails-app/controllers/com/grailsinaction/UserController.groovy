@@ -96,6 +96,9 @@ class UserController {
             return
         }
 
+        userInstance.validate()
+
+
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'create'
             return

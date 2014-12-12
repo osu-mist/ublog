@@ -23,11 +23,7 @@
 			</g:hasErrors>
 
 
-
-
-
 			<g:form url="[resource:userInstance, action:'update']" method="PUT" >
-
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>

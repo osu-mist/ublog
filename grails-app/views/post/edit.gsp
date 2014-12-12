@@ -27,17 +27,6 @@
 			</ul>
 			</g:hasErrors>
 
-	<%--		<g:form url="[resource:postInstance, action:'update']" method="PUT" >
-				<g:hiddenField name="version" value="${postInstance?.version}" />
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-				</fieldset>
-			</g:form>
---%>
-
             <g:form url="[resource:postInstance, action:'update']" method="PUT" >
 
 

@@ -28,11 +28,12 @@
 
 			<g:form url="[resource:postInstance, action:'save']" >
                     <%-- 'name' needs to match the post's fields  --%>
-                    <label>Title</label>
-                    <input type = "text"
+                <label>${message(code: 'post.title.label')}</label>
+
+                <input type = "text"
                         name = "title"
                         maxlength="60"
-                        value = "" />
+                        value = "${postInstance?.title}" />
 
                     <%-- WYSIWYG editor for the body of the post --%>
                     <ckeditor:editor name="bodyText" height="400px" width="80%">
