@@ -54,6 +54,13 @@
 					
 				</li>
 				</g:if>
+
+                <g:if test="${userInstance?.lastUpdated}">
+                    <li class="fieldcontain">
+                        <span id="lastUpdated-label" class="property-label"><g:message code="user.lastUpdated.label" default="Last Updated" /></span>
+                        <span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${userInstance?.lastUpdated}" /></span>
+                    </li>
+                </g:if>
 			
 				<g:if test="${userInstance?.site}">
 				<li class="fieldcontain">
@@ -69,7 +76,7 @@
 					<span id="posts-label" class="property-label"><g:message code="user.posts.label" default="Posts" /></span>
 					
 						<g:each in="${userInstance.posts}" var="p">
-						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.title.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

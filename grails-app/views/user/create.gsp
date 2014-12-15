@@ -15,6 +15,7 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
 			<g:hasErrors bean="${userInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${userInstance}" var="error">
@@ -22,10 +23,47 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
+
 			<g:form url="[resource:userInstance, action:'save']" >
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
+                <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'name', 'error')} required">
+                    <label>${message(code: 'user.create.name')}</label>
+                    <span class="required-indicator">*</span>
+                    <input type = "text"
+                           name = "name"
+                           maxlength="20"
+                           value = "${userInstance?.name}" />
+                </div>
+
+
+                <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'password', 'error')} required">
+                    <label>${message(code: 'user.create.password')}</label>
+                    <span class="required-indicator">*</span>
+                    <input type = "password"
+                           name = "password"
+                           maxlength="20"
+                           value = "${userInstance?.password}" />
+                </div>
+
+                <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
+                    <label>${message(code: 'user.create.email')}</label>
+                    <span class="required-indicator">*</span>
+                    <input type = "text"
+                           name = "email"
+                           maxlength="40"
+                           value = "${userInstance?.email}" />
+                </div>
+
+
+                <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'displayName', 'error')} required">
+                    <label>${message(code: 'user.create.displayname')}</label>
+                    <span class="required-indicator">*</span>
+                    <input type = "text"
+                           name = "displayName"
+                           maxlength="25"
+                           value = "${userInstance?.displayName}" />
+
+                </div>
+
 				<fieldset class="buttons">
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>

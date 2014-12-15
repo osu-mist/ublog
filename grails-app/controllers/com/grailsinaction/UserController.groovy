@@ -96,6 +96,9 @@ class UserController {
             return
         }
 
+        userInstance.validate()
+
+
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'create'
             return
@@ -128,7 +131,10 @@ class UserController {
             return
         }
 
+
+
         userInstance.save flush:true
+        session.user = userInstance
 
         request.withFormat {
             form multipartForm {

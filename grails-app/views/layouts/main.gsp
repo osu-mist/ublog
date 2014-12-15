@@ -7,6 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
         <g:message code="default.ublog.header"  />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,15 +27,12 @@
 
     <div class="nav" role="navigation">
         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <ul> <li><a class="lost" href="${createLink(uri: '/post/index')}"><g:message code="post.list.message"/></a> </li>
-
+        <ul> <li><a class="list" href="${createLink(uri: '/post/index')}"><g:message code="post.list.message"/></a> </li>
         </ul>
     </div>
 
 	<g:layoutBody />
-    <g:message code="default.ublog.footer"  />
 
-
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+	<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>
 </html>

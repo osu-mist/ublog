@@ -64,7 +64,6 @@ class PostController {
  * @param postInstance      The post to be saved
  * @return
  */
-
     @Transactional
     def save(Post postInstance) {
 
@@ -81,7 +80,6 @@ class PostController {
 
         
         if (postInstance.hasErrors()) {
-
             respond postInstance.errors, view:'create'
             return
         }
@@ -115,6 +113,7 @@ class PostController {
             respond postInstance.errors, view:'edit'
             return
         }
+
 
         postInstance.save flush:true
 

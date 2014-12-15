@@ -11,7 +11,7 @@
     <input type = "text"
            name = "title"
            maxlength="60"
-           value = "" />
+           value = "${postInstance?.title}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'bodyText', 'error')} required">
@@ -21,7 +21,7 @@
 	</label>
     <input type = "textarea"
            name = "bodyText"
-           value = "" />
+           value = "${postInstance?.bodyText}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'tags', 'error')} ">
